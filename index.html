@@ -95,7 +95,7 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:gri
 <button class="theme" data-theme="minimal"><b>08 / MINIMAL</b>미니멀 지면</button>
 </div></div>
 <div class="group"><div class="label">이미지 비율 <span>CANVAS</span></div><div class="switchrow" id="ratioBtns"><button data-ratio="1 / 1">1:1</button><button class="active" data-ratio="4 / 5">4:5</button><button data-ratio="4 / 3">4:3</button><button data-ratio="3 / 2">3:2</button><button data-ratio="16 / 9">16:9</button><button data-ratio="9 / 16">9:16</button></div></div>
-<div class="group"><div class="label">장식 요소 <span>OVERLAY</span></div><div class="switchrow" id="overlayBtns"><button class="active" data-overlay="radar">레이더</button><button data-overlay="depthscale">수심 눈금</button><button data-overlay="coordgrid">좌표 격자</button><button data-overlay="none">장식 없음</button></div></div>
+<div class="group"><div class="label">장식 요소 <span>OVERLAY</span></div><div class="switchrow" id="overlayBtns"><button class="active" data-overlay="radar">레이더</button><button data-overlay="depthscale">수심 눈금</button><button data-overlay="coordgrid">좌표 격자</button><button data-overlay="none">장식 없음</button></div><p class="hint">여러 개를 함께 켤 수 있어요. 누르면 켜지고 다시 누르면 꺼져요. "장식 없음"은 전부 꺼요.</p></div>
 <div class="group"><div class="label">수심계 <span>DEPTH</span></div><div class="switchrow"><button data-depthside="right" class="active">오른쪽</button><button data-depthside="left">왼쪽</button></div><div class="row" style="margin-top:8px"><div><div class="label">최대 수심 (m)</div><input class="field" type="number" id="depthMax" value="4000" min="10" max="11000"></div><div><div class="label">현재 깊이 <span id="depthPosVal">62%</span></div><input class="range" type="range" id="depthPos" min="0" max="100" value="62"></div></div><p class="hint">위 장식에서 “수심 눈금”을 고르면 표시됩니다. 현재 깊이 마커가 눈금 옆에 붙어요.</p></div><div class="group"><div class="label">상단 표기</div><div class="row"><input class="field" id="kickerIn" value="FIELD NOTE / 001" placeholder="카테고리"><input class="field" id="dateIn" value="25.10.26" placeholder="날짜"></div></div>
 <div class="group"><div class="label">장식 밀도 <span>DENSITY</span></div><div class="switchrow"><button data-density="low" class="active">기본</button><button data-density="mid">눈금·표식</button><button data-density="high">가득</button></div><p class="hint">눈금자, 정합 표식, 바코드, 점선 외곽 등을 프레임 바깥 여백에 더해요.</p></div>
 <div class="group"><div class="label">프레임 · 질감 <span>FRAME</span></div><div class="switchrow"><button data-frame="line" class="active">선</button><button data-frame="double">이중선</button><button data-frame="dashed">점선</button><button data-frame="none">없음</button></div><div class="switchrow" style="margin-top:7px"><button data-film="off" class="active">필름 효과 끔</button><button data-film="on">스캔라인·그레인</button></div><div class="switchrow" style="margin-top:7px"><button data-glow="off" class="active">글로우 끔</button><button data-glow="on">글자 글로우</button></div></div>
@@ -143,6 +143,7 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:gri
 <div class="group"><div class="label">출력 크기 <span>PNG</span></div><div class="switchrow" id="sizeBtns"><button class="active" data-size="1">1080px</button><button data-size="2">1620px</button><button data-size="3">2160px</button></div><p class="hint">브라우저 화면보다 큰 해상도로 PNG를 저장합니다.</p></div>
 <div class="group"><button class="btn primary" id="downloadBtn">↓ PNG 이미지 저장</button></div>
 <div class="group"><button class="btn" id="saveBtn">설정 이 브라우저에 저장</button><button class="btn" id="loadBtn" style="margin-top:7px">저장한 설정 불러오기</button><button class="btn" id="resetBtn" style="margin-top:7px">처음 상태로 되돌리기</button></div>
+<div class="group"><div class="label">프리셋 <span>PRESETS</span></div><input class="field" id="presetName" placeholder="프리셋 이름 (예: 황혼 소나)"><label class="hint" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="presetText">제목·본문 등 문구까지 함께 저장</label><button class="btn primary" id="presetSave">+ 현재 설정을 프리셋으로 저장</button><div id="presetList" style="margin-top:10px;display:grid;gap:6px"></div><div class="btnrow" style="margin-top:8px"><button class="btn" id="presetExport">내보내기(JSON)</button><button class="btn" id="presetImportBtn">가져오기</button></div><input type="file" id="presetImport" accept="application/json,.json" style="display:none"><p class="hint">기본은 디자인(컨셉·장식·색·글꼴·스티커·배경·로고)만 저장하고, 불러와도 지금 쓰던 글은 그대로 남아요. 프리셋은 이 브라우저에만 저장되니, 다른 곳에서 쓰려면 내보내기로 백업하세요.</p></div>
 <p class="hint">개인용 단일 HTML 도구입니다. 입력한 문구와 설정은 서버로 전송되지 않으며, 설정 저장을 누르면 현재 브라우저의 로컬 저장소에 보관됩니다. 배경 이미지를 업로드할 수 있으며, 설정과 이미지 데이터는 이 브라우저 안에서만 사용됩니다.</p>
 </section>
 </aside>
@@ -163,7 +164,7 @@ minimal:{accent:'#617d80',text:'#252c2d',title:'남겨진 문장',sub:'EXCERPT �
 const F=['kickerIn','dateIn','titleIn','subIn','bodyIn','signIn','pageIn','fontIn','titleFontIn','bodySize','titleSize','subSize','smallSize','lineHeight','paddingIn','accentIn','textIn','titleGapIn','letterSpacingIn','highlightIn','hlOp','dialogueColorIn','paraGapIn','shadeIn','bgOpacityIn','depthMax','depthPos','stampIn','stampSize','stampOp','stampRot','bgX','bgY','bgZ'];
 const D={kickerIn:'FIELD NOTE / 001',dateIn:(d=>String(d.getFullYear()).slice(2)+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+String(d.getDate()).padStart(2,'0'))(new Date()),titleIn:themes.sonar.title,subIn:themes.sonar.sub,bodyIn:'빛이 닿지 않는 곳에서도\n누군가는 오래도록 기다리고 있었다.\n\n“같이 빠지자, 한도준.”\n\n그 말은 약속처럼 가라앉아\n두 사람의 계절을 바꾸었다.',signIn:'@hwiik　✦　Abyssal Twilight',pageIn:'ARCHIVE 001',fontIn:"'Noto Serif KR',serif",titleFontIn:"'Noto Serif KR',serif",bodySize:'13',titleSize:'24',subSize:'10',smallSize:'9',lineHeight:'1.7',paddingIn:'6',accentIn:'#80e0e5',textIn:'#d9edf0',titleGapIn:'16',letterSpacingIn:'0',highlightIn:'#fff176',hlOp:'0.4',dialogueColorIn:'#d9edf0',paraGapIn:'.65',shadeIn:'25',bgOpacityIn:'100',depthMax:'4000',depthPos:'62',stampIn:'',stampSize:'100',stampOp:'0.5',stampRot:'-8',bgX:'50',bgY:'50',bgZ:'100'};
 const SD={theme:'sonar',ratio:'4 / 5',overlay:'radar',align:'left',bodyalign:'left',rule:'on',size:'1',autofit:'on',dialogue:'bar',depthside:'right',hlstyle:'full',bpos:'top',density:'low',film:'off',frame:'line',glow:'off',stamppos:'br'};
-const S={...SD},GR=['ratio','overlay','align','bodyalign','rule','size','autofit','dialogue','depthside','hlstyle','bpos','density','film','frame','glow','stamppos'];
+const S={...SD},GR=['ratio','align','bodyalign','rule','size','autofit','dialogue','depthside','hlstyle','bpos','density','film','frame','glow','stamppos'];
 let bgData='',tmr,STK=[],selId=null,uid=Date.now(),stampEl=null,stampData='';
 const v=id=>$(id).value,kk=()=>$('art').clientWidth/720;
 const hexA=(h,a)=>{const n=parseInt(h.slice(1),16);return 'rgba('+(n>>16)+','+(n>>8&255)+','+(n&255)+','+a+')'};
@@ -273,7 +274,7 @@ function drawFx(c,W,H,sc){
   const k=W/720,ac=v('accentIn'),MONO='"IBM Plex Mono",monospace';
   const ln=(x1,y1,x2,y2,o,w)=>{x.globalAlpha=o;x.strokeStyle=ac;x.lineWidth=w*k;x.beginPath();x.moveTo(x1,y1);x.lineTo(x2,y2);x.stroke();x.globalAlpha=1};
   const tx=(X,Y,t,sz,o,an,w,col)=>{x.globalAlpha=o;x.fillStyle=col||ac;x.font=(w||400)+' '+sz*k+'px '+MONO;x.textAlign=an;x.textBaseline='alphabetic';x.fillText(t,X,Y);x.globalAlpha=1};
-  if(S.overlay==='radar'){
+  if(ovs().includes('radar')){
     const cx=W/2,cy=H/2,R=Math.min(W,H)*.3,a=-.6,b=a-1.2;
     [.34,.67,1].forEach(f=>{x.globalAlpha=.22;x.strokeStyle=ac;x.lineWidth=1.2*k;x.beginPath();x.arc(cx,cy,R*f,0,7);x.stroke();x.globalAlpha=1});
     ln(cx-R,cy,cx+R,cy,.18,1);ln(cx,cy-R,cx,cy+R,.18,1);
@@ -282,8 +283,8 @@ function drawFx(c,W,H,sc){
     const bx=cx+R*.62*Math.cos(a-.3),by=cy+R*.62*Math.sin(a-.3);
     x.fillStyle=ac;x.globalAlpha=.22;x.beginPath();x.arc(bx,by,9*k,0,7);x.fill();x.globalAlpha=1;x.beginPath();x.arc(bx,by,3.5*k,0,7);x.fill();
   }
-  if(S.overlay==='coordgrid'){const g=28*k;for(let X=g;X<W;X+=g)ln(X,0,X,H,.07,1);for(let Y=g;Y<H;Y+=g)ln(0,Y,W,Y,.07,1)}
-  if(S.overlay==='depthscale'){
+  if(ovs().includes('coordgrid')){const g=28*k;for(let X=g;X<W;X+=g)ln(X,0,X,H,.07,1);for(let Y=g;Y<H;Y+=g)ln(0,Y,W,Y,.07,1)}
+  if(ovs().includes('depthscale')){
     const L=S.depthside==='left',X=W*(L?.078:.922),d=L?1:-1,top=H*.14,bot=H*.86,max=+v('depthMax')||4000,an=L?'start':'end';
     const fm=m=>m>=1000?+(m/1000).toFixed(1)+' km':Math.round(m)+' m';
     ln(X,top,X,bot,.45,1.2);tx(X,top-9*k,'DEPTH',8,.8,an,600);
@@ -347,7 +348,7 @@ function update(){
   document.querySelectorAll('.kicker,.foot').forEach(x=>x.style.fontSize=v('smallSize')*k+'px');
   B.style.fontFamily=v('fontIn');B.style.textAlign=S.bodyalign;B.style.letterSpacing=v('letterSpacingIn')*k+'px';B.style.lineHeight=v('lineHeight');B.dataset.bpos=S.bpos;
   I.style.padding=pad+'%';
-  if(S.overlay==='depthscale')I.style[S.depthside==='left'?'paddingLeft':'paddingRight']='calc('+pad+'% + '+44*k+'px)';
+  if(ovs().includes('depthscale'))I.style[S.depthside==='left'?'paddingLeft':'paddingRight']='calc('+pad+'% + '+44*k+'px)';
   $('rule').style.display=S.rule==='on'?'block':'none';
   document.querySelectorAll('.mdspace').forEach(x=>x.style.height=v('paraGapIn')+'em');
   [['bodySize','bodySizeVal','px'],['titleSize','titleSizeVal','px'],['subSize','subSizeVal','px'],['smallSize','smallSizeVal','px'],['lineHeight','lineVal',''],['paddingIn','paddingVal','%'],['titleGapIn','titleGapVal','px'],['letterSpacingIn','letterSpacingVal','px'],['paraGapIn','paraGapVal','em'],['shadeIn','shadeVal','%'],['bgOpacityIn','bgOpacityVal','%'],['depthPos','depthPosVal','%'],['bgX','bgXVal','%'],['bgY','bgYVal','%'],['bgZ','bgZVal','%']].forEach(([i,o,u])=>$(o).textContent=v(i)+u);$('hlOpVal').textContent=Math.round(v('hlOp')*100)+'%';
@@ -355,7 +356,7 @@ function update(){
   fx();requestAnimationFrame(fit);
   clearTimeout(tmr);tmr=setTimeout(()=>{try{localStorage.setItem('deepArchiveAuto',JSON.stringify(snap(false)))}catch(e){}},500);
 }
-function syncBtns(){GR.forEach(g=>document.querySelectorAll('[data-'+g+']').forEach(b=>b.classList.toggle('active',b.dataset[g]===S[g])));document.querySelectorAll('.theme').forEach(b=>b.classList.toggle('active',b.dataset.theme===S.theme))}
+function syncBtns(){GR.forEach(g=>document.querySelectorAll('[data-'+g+']').forEach(b=>b.classList.toggle('active',b.dataset[g]===S[g])));document.querySelectorAll('.theme').forEach(b=>b.classList.toggle('active',b.dataset.theme===S.theme));syncOv()}
 function setTheme(n,fill=true){
   const prev=S.theme;S.theme=n;const t=themes[n];
   if(fill){$('accentIn').value=t.accent;$('textIn').value=t.text;
@@ -364,6 +365,10 @@ function setTheme(n,fill=true){
 }
 document.querySelectorAll('.theme').forEach(b=>b.onclick=()=>setTheme(b.dataset.theme));
 GR.forEach(g=>document.querySelectorAll('[data-'+g+']').forEach(b=>b.onclick=()=>{S[g]=b.dataset[g];syncBtns();update()}));
+/* 장식 요소: 여러 개 선택 (S.overlay = 'radar,depthscale' 형태, 예전 저장값도 호환) */
+function ovs(){return String(S.overlay||'').split(',').filter(o=>o&&o!=='none')}
+function syncOv(){const a=ovs();document.querySelectorAll('[data-overlay]').forEach(b=>b.classList.toggle('active',b.dataset.overlay==='none'?!a.length:a.includes(b.dataset.overlay)))}
+document.querySelectorAll('[data-overlay]').forEach(b=>b.onclick=()=>{const o=b.dataset.overlay;let a=ovs();a=o==='none'?[]:a.includes(o)?a.filter(x=>x!==o):[...a,o];S.overlay=a.join(',');syncOv();update()});
 document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id==='sec-'+b.dataset.tab))});
 F.forEach(id=>$(id).addEventListener('input',update));
 document.querySelectorAll('[data-md],[data-pre]').forEach(b=>b.onclick=()=>{
@@ -455,6 +460,29 @@ function setStamp(d){stampData=d||'';if(!stampData){stampEl=null;update();return
 $('stampUpload').addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(!f||!f.type.startsWith('image/'))return;const im=new Image(),u=URL.createObjectURL(f);
   im.onload=()=>{const r=Math.min(1,800/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.max(1,im.width*r);c.height=Math.max(1,im.height*r);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);setStamp(c.toDataURL('image/png'));e.target.value=''};im.onerror=()=>toast('이미지를 읽지 못했어요.');im.src=u});
 $('stampClear').onclick=()=>setStamp('');
+/* 프리셋 여러 개 */
+const PK='deepArchivePresets',TXT=['kickerIn','dateIn','titleIn','subIn','bodyIn','signIn','pageIn','stampIn'];
+function getPresets(){try{const a=JSON.parse(localStorage.getItem(PK));return Array.isArray(a)?a:[]}catch(e){return[]}}
+function putPresets(a){try{localStorage.setItem(PK,JSON.stringify(a));return true}catch(e){return false}}
+function savePreset(id){
+  const name=$('presetName').value.trim(),a=getPresets();let p=id?a.find(q=>q.id===id):null;
+  if(!p&&!name){toast('프리셋 이름을 입력해 주세요.');return}
+  const inc=$('presetText').checked,build=bg=>{const o=JSON.parse(JSON.stringify(snap(bg)));if(!inc)TXT.forEach(i=>delete o.f[i]);return o};
+  if(!p){p={id:Date.now(),name};a.push(p)}else if(name)p.name=name;
+  p.text=inc;p.data=build(true);let m='프리셋을 저장했어요.';
+  if(!putPresets(a)){p.data=build(false);if(!putPresets(a)){toast('저장 공간이 부족해요. 내보내기로 백업해 주세요.');return}m='이미지는 용량 때문에 빼고 저장했어요.'}
+  toast(m);$('presetName').value='';renderPresets()}
+function renderPresets(){const box=$('presetList'),a=getPresets();box.innerHTML='';
+  if(!a.length){box.innerHTML='<p class="hint">저장된 프리셋이 없어요.</p>';return}
+  const mk=(t,fn)=>{const b=document.createElement('button');b.textContent=t;b.style.cssText='background:#14232d;border:1px solid #2b414f;color:#dce8ed;padding:6px 8px;font-size:10px';b.onclick=fn;return b};
+  a.forEach(p=>{const r=document.createElement('div');r.style.cssText='display:grid;grid-template-columns:1fr auto auto auto;gap:5px;align-items:center;background:#0b141b;border:1px solid #273b47;padding:6px 8px';
+    const n=document.createElement('span');n.textContent=p.name+(p.text?' · 문구 포함':'');n.style.cssText='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0';
+    r.append(n,mk('불러오기',()=>{apply(JSON.parse(JSON.stringify(p.data)));toast('프리셋을 불러왔어요.')}),mk('덮어쓰기',()=>{if(confirm('"'+p.name+'" 프리셋을 현재 설정으로 덮어쓸까요?'))savePreset(p.id)}),mk('삭제',()=>{if(confirm('"'+p.name+'" 프리셋을 삭제할까요?')){putPresets(getPresets().filter(q=>q.id!==p.id));renderPresets()}}));box.appendChild(r)})}
+$('presetSave').onclick=()=>savePreset();
+$('presetExport').onclick=()=>{const a=getPresets();if(!a.length){toast('내보낼 프리셋이 없어요.');return}const u=URL.createObjectURL(new Blob([JSON.stringify({deepArchivePresets:1,presets:a})],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download='deep-archive-presets.json';l.click();setTimeout(()=>URL.revokeObjectURL(u),2000)};
+$('presetImportBtn').onclick=()=>$('presetImport').click();
+$('presetImport').addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const inc=JSON.parse(r.result).presets;if(!Array.isArray(inc))throw 0;const a=getPresets();let n=0;inc.forEach(p=>{if(p&&p.name&&p.data)a.push({id:Date.now()+n++,name:p.name,text:!!p.text,data:p.data})});if(!n)throw 0;if(!putPresets(a)){toast('저장 공간이 부족해요.');return}renderPresets();toast(n+'개 프리셋을 가져왔어요.')}catch(x){toast('프리셋 파일이 아니에요.')}e.target.value=''};r.readAsText(f)});
+renderPresets();
 $('outClose').onclick=()=>$('outModal').classList.remove('on');
 F.forEach(i=>$(i).value=D[i]);
 let auto=null;try{auto=JSON.parse(localStorage.getItem('deepArchiveAuto'))}catch(e){}
