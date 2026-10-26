@@ -243,7 +243,7 @@ function splitHlByLine(root){
       made.forEach(sp=>{
         const r=sp.getBoundingClientRect();if(!r.width||!r.height)return;
         /* 화면에서의 글자 윗면→baseline 거리는 폰트 자체 ascent로 구해요(줄 맨 앞 span은 측정용 요소가 윗줄로 붙어버려서 쓸 수 없음) */
-        let dl=0;try{const cs=doc.defaultView.getComputedStyle(sp);cx.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;const asc=cx.measureText('Hg').fontBoundingBoxAscent;if(asc)dl=Math.max(-4,Math.min(6,h2c(cs)-asc))}catch(e){}
+        let dl=0;try{const cs=doc.defaultView.getComputedStyle(sp);cx.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;const asc=cx.measureText('Hg').fontBoundingBoxAscent;if(asc)dl=Math.max(0,Math.min(2,h2c(cs)-asc))}catch(e){}
         dl+=+v('hlShift')||0;
         const h=r.height*pct,d=doc.createElement('div');
         d.style.cssText='position:absolute;pointer-events:none;z-index:-1;background:'+bg+';left:'+(r.left-hr.left+host.scrollLeft)+'px;top:'+(r.bottom-hr.top-h+host.scrollTop+dl)+'px;width:'+r.width+'px;height:'+h+'px';
